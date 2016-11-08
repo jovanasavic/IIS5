@@ -3,6 +3,19 @@ package geometrija;
 public class Linija {
 	private Tacka tPocetna;
 	private Tacka tKrajnja;
+	private String boja;
+	
+	public Linija(){
+		
+	}
+	public Linija(Tacka tPocetna, Tacka tKrajnja){
+		this.tPocetna = tPocetna;
+		this.tKrajnja = tKrajnja;
+	}
+	public Linija(Tacka tPocetna, Tacka tKrajnja,String boja){
+		this(tPocetna, tKrajnja);
+		this.boja = boja;
+	}
 	
 	public double duzina(){
 		return tPocetna.udaljenost(tKrajnja);
@@ -26,6 +39,12 @@ public class Linija {
 	}
 	public void settKrajnja(Tacka tKrajnja){
 		this.tKrajnja = tKrajnja;
+	}
+	public String getBoja() {
+		return boja;
+	}
+	public void setBoja(String boja) {
+		this.boja = boja;
 	}
 
 }

@@ -29,8 +29,35 @@ public class Test {
 		Pravougaonik p1 = new Pravougaonik();
 		p1.setGoreLevo(l1.gettKrajnja());
 		System.out.println("X gore levo p1: "+p1.getGoreLevo().getX());
-		
-		
+		Krug kr1 = new Krug();
+		kr1.setCentar(t1);
+		System.out.println("X centra kr1: "+kr1.getCentar().getX());
+		//postaviti x koordinatu centra kruga
+		//na vrednost zbira x koordinata pocetne i krajnje tacke l1
+		kr1.getCentar().setX(l1.gettPocetna().getX()+l1.gettKrajnja().getX());	
+		System.out.println("X centra kr1: "+kr1.getCentar().getX());
+		Kvadrat kv1 = new Kvadrat();
+		System.out.println("Povrsina kv1: "+kv1.povrsina());
+		Tacka t3 = new Tacka(5, 10);
+		t2 = t3;
+		Tacka t4 = new Tacka(t3.getX(), t3.getY());
+		System.out.println("X t4: "+t4.getX());
+		Linija l2 = new Linija(new Tacka(4, 4),new Tacka(7, 7));
+		System.out.println("Duzina l2: "+l2.duzina());
+		//pomeriti pocetnu tacku l2 ZA po x 3 i po y 5
+		l2.gettPocetna().pomeriZa(3, 5);
+		System.out.println("X pocetne l2: "+l2.gettPocetna().getX());
+		System.out.println("Y pocetne l2: "+l2.gettPocetna().getY());
+		Pravougaonik p2 = new Pravougaonik(l2.gettKrajnja(),50,100);
+		System.out.println("Visina p2: "+p2.getVisina());
+		//Zbir udaljenosti pocetne tacke linije l1 od tacke gore levo p1 i duzine linije l2:
+		System.out.println("Zbir: "+ (l1.gettPocetna().udaljenost(p1.getGoreLevo())+ l2.duzina()));
+		//kreirati kvadrat kv2
+		//gore levo --> pocetna tacka linije l2, pomerena za po x 15 po y 20
+		//stranica = duzina l2 uvecana za vrednost povrsine p1
+		Tacka tp = new Tacka(l2.gettPocetna().getX(), l2.gettPocetna().getY());
+		tp.pomeriZa(15, 20);
+		Kvadrat kv2 = new Kvadrat(tp, (int)(l2.duzina() + p1.povrsina()));
 	}
 
 }

@@ -4,6 +4,20 @@ public class Pravougaonik {
 	private Tacka goreLevo;
 	private int visina;
 	private int sirina;
+	private String boja;
+
+	public Pravougaonik(){
+
+	}
+	public Pravougaonik(Tacka goreLevo, int visina, int sirina){
+		this.goreLevo = goreLevo;
+		this.visina = visina;
+		this.sirina = sirina;
+	}
+	public Pravougaonik(Tacka goreLevo, int visina, int sirina, String boja){
+		this(goreLevo, visina, sirina);
+		this.boja = boja;
+	}
 
 	public int obim(){
 		return 2 * (sirina + visina);
@@ -37,6 +51,12 @@ public class Pravougaonik {
 	}
 	public void setSirina(int sirina) {
 		this.sirina = sirina;
+	}
+	public String getBoja() {
+		return boja;
+	}
+	public void setBoja(String boja) {
+		this.boja = boja;
 	}
 
 
