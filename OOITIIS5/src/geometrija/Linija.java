@@ -1,9 +1,9 @@
 package geometrija;
 
-public class Linija {
+public class Linija extends Oblik{
 	private Tacka tPocetna;
 	private Tacka tKrajnja;
-	private String boja;
+	
 	
 	public Linija(){
 		
@@ -13,10 +13,16 @@ public class Linija {
 		this.tKrajnja = tKrajnja;
 	}
 	public Linija(Tacka tPocetna, Tacka tKrajnja,String boja){
-		this(tPocetna, tKrajnja);
-		this.boja = boja;
+		super(boja);
+		this.tPocetna = tPocetna;
+		this.tKrajnja = tKrajnja;
+		
 	}
-	
+	public Tacka sredinaLinije(){
+		int sredinaX = (tPocetna.getX() + tKrajnja.getX()) / 2;
+		int sredinaY = (tPocetna.getY() + tKrajnja.getY()) / 2;
+		return new Tacka(sredinaX, sredinaY);
+	}
 	public String toString(){
 		return "("+tPocetna.getX()+"," +tPocetna.getY()+") --> (" + tKrajnja.getX()+","+ tKrajnja.getY() + ")";
 	}
@@ -57,11 +63,5 @@ public class Linija {
 	public void settKrajnja(Tacka tKrajnja){
 		this.tKrajnja = tKrajnja;
 	}
-	public String getBoja() {
-		return boja;
-	}
-	public void setBoja(String boja) {
-		this.boja = boja;
-	}
-
+	
 }

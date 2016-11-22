@@ -1,28 +1,29 @@
 package geometrija;
 
-public class Pravougaonik {
-	private Tacka goreLevo;
-	private int visina;
+public class Pravougaonik extends Kvadrat{
 	private int sirina;
-	private String boja;
-
+	
 	public Pravougaonik(){
 
 	}
 	public Pravougaonik(Tacka goreLevo, int visina, int sirina){
-		this.goreLevo = goreLevo;
-		this.visina = visina;
+		super(goreLevo, visina);
 		this.sirina = sirina;
 	}
 	public Pravougaonik(Tacka goreLevo, int visina, int sirina, String boja){
 		this(goreLevo, visina, sirina);
-		this.boja = boja;
+		setBoja(boja);
 	}
-	
+	public Linija dijagonala(){
+		return new Linija(goreLevo, new Tacka(goreLevo.getX() + sirina,goreLevo.getY() + getDuzinaStranice()));
+	}
+	public Tacka centar(){
+		return dijagonala().sredinaLinije();
+	}
 	public boolean equals(Object obj){
 		if(obj instanceof Pravougaonik){
 			Pravougaonik pomocni=(Pravougaonik) obj;
-			if(this.goreLevo.equals(pomocni.goreLevo) && this.sirina==pomocni.sirina && this.visina==pomocni.visina)
+			if(this.goreLevo.equals(pomocni.goreLevo) && this.sirina==pomocni.sirina && this.getDuzinaStranice()==pomocni.getDuzinaStranice())
 				return true;
 			else
 				return false;
@@ -32,48 +33,26 @@ public class Pravougaonik {
 	}
 	
 	public String toString(){
-		return "Gornji levi ugao="+goreLevo+",sirina="+sirina+",visina="+visina;
+		return "Gornji levi ugao="+goreLevo+",sirina="+sirina+",getDuzinaStranica()="+getDuzinaStranice();
 	}
 
 	public int obim(){
-		return 2 * (sirina + visina);
+		return 2 * (sirina + getDuzinaStranice());
 	}
 	public int povrsina(){
-		return sirina * visina;
+		return sirina * getDuzinaStranice();
 	}
-	public void pomeriNa(int x, int y){
-		goreLevo.setX(x);
-		goreLevo.setY(y);
-	}
-	public void pomeriZa(int x, int y){
-		goreLevo.setX(goreLevo.getX()+x);
-		goreLevo.setY(goreLevo.getY()+y);
-	}
-
-	public Tacka getGoreLevo() {
-		return goreLevo;
-	}
-	public int getVisina() {
-		return visina;
-	}
+	
+		
 	public int getSirina() {
 		return sirina;
 	}
-	public void setGoreLevo(Tacka goreLevo) {
-		this.goreLevo = goreLevo;
-	}
-	public void setVisina(int visina) {
-		this.visina = visina;
-	}
+	
+	
 	public void setSirina(int sirina) {
 		this.sirina = sirina;
 	}
-	public String getBoja() {
-		return boja;
-	}
-	public void setBoja(String boja) {
-		this.boja = boja;
-	}
+	
 
 
 }

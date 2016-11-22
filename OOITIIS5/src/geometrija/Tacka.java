@@ -1,9 +1,9 @@
 package geometrija;
 
-public class Tacka {
+public class Tacka extends Oblik{
 	private int x;
 	private int y;
-	private String boja;
+
 	
 	public Tacka(){
 		
@@ -14,7 +14,7 @@ public class Tacka {
 	}
 	public Tacka(int x, int y, String boja){
 		this(x, y);
-		this.boja = boja;
+		setBoja(boja);
 	}	
 	
 	public String toString(){
@@ -60,11 +60,6 @@ public class Tacka {
 	public void setY(int novoY){
 		y = novoY;
 	}
-	public String getBoja() {
-		return boja;
-	}
-	public void setBoja(String boja) {
-		this.boja = boja;
-	}
+	
 
 }

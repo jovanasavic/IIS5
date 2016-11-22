@@ -1,10 +1,10 @@
 package geometrija;
 
-public class Krug {
+
+public class Krug extends Oblik{
 	private Tacka centar;
 	private int r;
-	private String boja;
-
+	
 	public Krug(){
 
 	}
@@ -14,7 +14,7 @@ public class Krug {
 	}
 	public Krug(Tacka centar, int r, String boja){
 		this(centar, r);
-		this.boja = boja;
+		setBoja(boja);
 	}
 	
 	public String toString(){
@@ -62,11 +62,6 @@ public class Krug {
 	public void setR(int r) {
 		this.r = r;
 	}
-	public String getBoja() {
-		return boja;
-	}
-	public void setBoja(String boja) {
-		this.boja = boja;
-	}
+	
 
 }

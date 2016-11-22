@@ -49,7 +49,7 @@ public class Test {
 		System.out.println("X pocetne l2: "+l2.gettPocetna().getX());
 		System.out.println("Y pocetne l2: "+l2.gettPocetna().getY());
 		Pravougaonik p2 = new Pravougaonik(l2.gettKrajnja(),50,100);
-		System.out.println("Visina p2: "+p2.getVisina());
+		//System.out.println("Visina p2: "+p2.getVisina());
 		//Zbir udaljenosti pocetne tacke linije l1 od tacke gore levo p1 i duzine linije l2:
 		System.out.println("Zbir: "+ (l1.gettPocetna().udaljenost(p1.getGoreLevo())+ l2.duzina()));
 		//kreirati kvadrat kv2
@@ -85,6 +85,19 @@ public class Test {
 		l1.settPocetna(l2.gettPocetna());
 		l1.settKrajnja(l2.gettKrajnja());
 		System.out.println(l1.equals(l2));
+		System.out.println("Sredisna tacka l1: "+l1.sredinaLinije());
+		
+		// postaviti y koordinatu centra pravougaonika p1 na vrednost
+		// y koordinate sredine linije dijagonale pravougaonika p1
+		//p1.centar().setY(p1.dijagonala().sredinaLinije().getY());
+		//kv1.centar().setY(kv1.dijagonala().sredinaLinije().getY());
+		
+		Pravougaonik p4 = new Pravougaonik(new Tacka(10, 10), 100, 50);
+		Kvadrat kv4 = new Kvadrat(new Tacka(10, 10), 50);
+		System.out.println("Centar p4: "+p4.centar());
+		System.out.println("Centar kv4: "+kv4.centar());
+		
+		
 		
 	}
 

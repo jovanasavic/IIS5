@@ -1,9 +1,9 @@
 package geometrija;
 
-public class Kvadrat {
-	private Tacka goreLevo;
-	private int duzinaStranice;
-	private String boja;
+public class Kvadrat extends Oblik{
+	protected Tacka goreLevo;
+	protected int duzinaStranice;
+	
 
 	public Kvadrat() {
 
@@ -16,9 +16,15 @@ public class Kvadrat {
 
 	public Kvadrat(Tacka goreLevo, int duzinaStranice, String boja) {
 		this(goreLevo, duzinaStranice);
-		this.boja = boja;
+		setBoja(boja);
+	}
+	public Linija dijagonala(){
+		return new Linija(goreLevo, new Tacka(goreLevo.getX() + duzinaStranice,goreLevo.getY() + duzinaStranice));
 	}
 
+	public Tacka centar(){
+		return dijagonala().sredinaLinije();
+	}
 	public String toString() {
 		return "gornji levi ugao=(" + goreLevo.getX() + "," + goreLevo.getY() + "), stranica=" + duzinaStranice;
 	}
@@ -56,7 +62,7 @@ public class Kvadrat {
 		return goreLevo;
 	}
 
-	public int getDuzinaStranica() {
+	public int getDuzinaStranice() {
 		return duzinaStranice;
 	}
 
@@ -68,12 +74,5 @@ public class Kvadrat {
 		this.duzinaStranice = duzinaStranica;
 	}
 
-	public String getBoja() {
-		return boja;
-	}
-
-	public void setBoja(String boja) {
-		this.boja = boja;
-	}
-
+	
 }
