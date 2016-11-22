@@ -18,6 +18,22 @@ public class Pravougaonik {
 		this(goreLevo, visina, sirina);
 		this.boja = boja;
 	}
+	
+	public boolean equals(Object obj){
+		if(obj instanceof Pravougaonik){
+			Pravougaonik pomocni=(Pravougaonik) obj;
+			if(this.goreLevo.equals(pomocni.goreLevo) && this.sirina==pomocni.sirina && this.visina==pomocni.visina)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
+	public String toString(){
+		return "Gornji levi ugao="+goreLevo+",sirina="+sirina+",visina="+visina;
+	}
 
 	public int obim(){
 		return 2 * (sirina + visina);

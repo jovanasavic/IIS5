@@ -17,6 +17,23 @@ public class Linija {
 		this.boja = boja;
 	}
 	
+	public String toString(){
+		return "("+tPocetna.getX()+"," +tPocetna.getY()+") --> (" + tKrajnja.getX()+","+ tKrajnja.getY() + ")";
+	}
+	
+	public boolean equals(Object obj){
+		if(obj instanceof Linija){
+			Linija pomocna=(Linija)obj;
+			if(this.tPocetna.equals(pomocna.tPocetna) && this.tKrajnja.equals(pomocna.tKrajnja))
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
+	
 	public double duzina(){
 		return tPocetna.udaljenost(tKrajnja);
 	}

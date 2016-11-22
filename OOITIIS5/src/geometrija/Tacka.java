@@ -17,6 +17,22 @@ public class Tacka {
 		this.boja = boja;
 	}	
 	
+	public String toString(){
+		return "(" + this.x + ","+this.y+")";			
+	}
+	
+	public boolean equals(Object obj){
+		if(obj instanceof Tacka){
+			Tacka pomocna=(Tacka)obj;
+			if(this.x==pomocna.getX() && this.y==pomocna.getY())
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
 	public void pomeriNa(int novoX, int novoY){
 		x = novoX;
 		setY(novoY);

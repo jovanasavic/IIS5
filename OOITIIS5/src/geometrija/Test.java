@@ -58,6 +58,34 @@ public class Test {
 		Tacka tp = new Tacka(l2.gettPocetna().getX(), l2.gettPocetna().getY());
 		tp.pomeriZa(15, 20);
 		Kvadrat kv2 = new Kvadrat(tp, (int)(l2.duzina() + p1.povrsina()));
+		//System.out.println(t1);
+		//(x,y)
+		System.out.println(t1);
+		//(xPocetne, yPocetne)-->(xKrajnje, yKrajnje)
+		System.out.println(l1);
+		//"gornji levi ugao=(x,y), stranica=duzinaStranice"
+		System.out.println(kv2);
+		//"gornji levi ugao=(x,y), sirina=sirina, visina=visina"
+		System.out.println(p2);
+		//"centar=(x,y)", poluprecnik=poluprecnik"
+		System.out.println(kr1);
+		Tacka tn=new Tacka();
+		System.out.println(tn);
+		Kvadrat kn= new Kvadrat(new Tacka(),6);
+		System.out.println(kn);
+		System.out.println(t1);
+		System.out.println(t2);
+		t1.setX(t2.getX());
+		t1.setY(t2.getY());
+		//t1=t2;
+		System.out.println(t1==t2);
+		System.out.println(t1.equals(t2));
+		System.out.println(l1);
+		System.out.println(l2);
+		l1.settPocetna(l2.gettPocetna());
+		l1.settKrajnja(l2.gettKrajnja());
+		System.out.println(l1.equals(l2));
+		
 	}
 
 }

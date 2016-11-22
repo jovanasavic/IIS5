@@ -16,6 +16,25 @@ public class Krug {
 		this(centar, r);
 		this.boja = boja;
 	}
+	
+	public String toString(){
+		return "centar " + centar + ", poluprecnik=" + r;
+	}
+	
+	
+	public boolean equals(Object obj){
+		if (obj instanceof Krug)
+		{
+			Krug pomocni=(Krug)obj;
+			if(this.centar.equals(pomocni.centar) && this.r==pomocni.r)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;	
+	}
+	
 
 	public void pomeriNa(int x, int y){
 		centar.setX(x);
