@@ -1,12 +1,14 @@
 package geometrija;
 
+import java.awt.Graphics;
+
 public class Tacka extends Oblik{
 	private int x;
 	private int y;
 
-	
+
 	public Tacka(){
-		
+
 	}
 	public Tacka(int x, int y){
 		this.x = x;
@@ -16,11 +18,11 @@ public class Tacka extends Oblik{
 		this(x, y);
 		setBoja(boja);
 	}	
-	
+
 	public String toString(){
 		return "(" + this.x + ","+this.y+")";			
 	}
-	
+
 	public boolean equals(Object obj){
 		if(obj instanceof Tacka){
 			Tacka pomocna=(Tacka)obj;
@@ -32,7 +34,7 @@ public class Tacka extends Oblik{
 		else
 			return false;
 	}
-	
+
 	public void pomeriNa(int novoX, int novoY){
 		x = novoX;
 		setY(novoY);
@@ -48,6 +50,12 @@ public class Tacka extends Oblik{
 		return rezultat;
 	}
 
+	public void crtajSe(Graphics g) {
+		g.setColor(pronadjiBoju(getBoja()));
+		g.drawLine(x-2, y, x+2, y);
+		g.drawLine(x, y-2, x, y+2);
+	}
+
 	public int getX(){
 		return x;
 	}
@@ -60,6 +68,8 @@ public class Tacka extends Oblik{
 	public void setY(int novoY){
 		y = novoY;
 	}
-	
+
+
+
 
 }
