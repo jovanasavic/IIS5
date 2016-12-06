@@ -1,5 +1,7 @@
 package geometrija;
 
+import java.awt.Graphics;
+
 public class Pravougaonik extends Kvadrat{
 	private int sirina;
 	
@@ -42,7 +44,10 @@ public class Pravougaonik extends Kvadrat{
 	public int povrsina(){
 		return sirina * getDuzinaStranice();
 	}
-	
+	public void crtajSe(Graphics g){
+		g.setColor(pronadjiBoju(getBoja()));
+		g.drawRect(goreLevo.getX(), goreLevo.getY(), duzinaStranice, sirina);
+	}
 		
 	public int getSirina() {
 		return sirina;

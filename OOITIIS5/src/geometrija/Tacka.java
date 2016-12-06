@@ -2,7 +2,7 @@ package geometrija;
 
 import java.awt.Graphics;
 
-public class Tacka extends Oblik{
+public class Tacka extends Oblik implements Pomerljiv{
 	private int x;
 	private int y;
 
@@ -55,6 +55,12 @@ public class Tacka extends Oblik{
 		g.drawLine(x-2, y, x+2, y);
 		g.drawLine(x, y-2, x, y+2);
 	}
+	
+	public int compareTo(Object o) {
+		Tacka nula = new Tacka(0,0);
+		Tacka nova  = (Tacka) o;
+		return (int) (this.udaljenost(nula) - nova.udaljenost(nula));
+	}
 
 	public int getX(){
 		return x;
@@ -68,6 +74,7 @@ public class Tacka extends Oblik{
 	public void setY(int novoY){
 		y = novoY;
 	}
+	
 
 
 

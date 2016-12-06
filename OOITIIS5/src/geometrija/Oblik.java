@@ -3,8 +3,8 @@ package geometrija;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class Oblik {
-	private String boja;
+public abstract class Oblik implements Comparable{
+	private String boja = "crna";
 	
 	public Oblik() {
 		

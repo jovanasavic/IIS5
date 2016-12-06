@@ -1,6 +1,8 @@
 package geometrija;
 
-public class Kvadrat extends Oblik{
+import java.awt.Graphics;
+
+public class Kvadrat extends Oblik implements Pomerljiv{
 	protected Tacka goreLevo;
 	protected int duzinaStranice;
 	
@@ -39,7 +41,7 @@ public class Kvadrat extends Oblik{
 		} else
 			return false;
 	}
-
+	
 	public void pomeriNa(int x, int y) {
 		goreLevo.setX(x);
 		goreLevo.setY(y);
@@ -57,7 +59,10 @@ public class Kvadrat extends Oblik{
 	public int povrsina() {
 		return duzinaStranice * duzinaStranice;
 	}
-
+	public void crtajSe(Graphics g){
+		g.setColor(pronadjiBoju(getBoja()));
+		g.drawRect(goreLevo.getX(), goreLevo.getY(), duzinaStranice, duzinaStranice);
+	}
 	public Tacka getGoreLevo() {
 		return goreLevo;
 	}
@@ -72,6 +77,12 @@ public class Kvadrat extends Oblik{
 
 	public void setDuzinaStranica(int duzinaStranica) {
 		this.duzinaStranice = duzinaStranica;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

@@ -1,5 +1,7 @@
 package geometrija;
 
+import java.awt.Graphics;
+
 public class Linija extends Oblik{
 	private Tacka tPocetna;
 	private Tacka tKrajnja;
@@ -50,7 +52,10 @@ public class Linija extends Oblik{
 		tKrajnja.setX(tKrajnja.getX()+x);
 		tKrajnja.setY(tKrajnja.getY()+y);
 	}
-	
+	public void crtajSe(Graphics g){
+		g.setColor(pronadjiBoju(getBoja()));
+		g.drawLine(tPocetna.getX(), tPocetna.getY(), tKrajnja.getX(), tKrajnja.getY());
+	}
 	public Tacka gettPocetna(){
 		return tPocetna;
 	}
@@ -62,6 +67,11 @@ public class Linija extends Oblik{
 	}
 	public void settKrajnja(Tacka tKrajnja){
 		this.tKrajnja = tKrajnja;
+	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
