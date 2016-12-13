@@ -48,6 +48,10 @@ public class Pravougaonik extends Kvadrat{
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawRect(goreLevo.getX(), goreLevo.getY(), duzinaStranice, sirina);
 	}
+	public void popuni(Graphics g){
+		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.fillRect(goreLevo.getX()+1, goreLevo.getY()+1, duzinaStranice-1, sirina-1);
+	}
 		
 	public int getSirina() {
 		return sirina;

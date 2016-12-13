@@ -38,6 +38,9 @@ public class Crtez extends JPanel{
 		k1.crtajSe(g);
 		kv1.crtajSe(g);
 		p1.crtajSe(g);
+		k1.popuni(g);
+		kv1.popuni(g);
+		p1.popuni(g);
 		
 	}
 

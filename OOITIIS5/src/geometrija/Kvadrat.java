@@ -2,7 +2,7 @@ package geometrija;
 
 import java.awt.Graphics;
 
-public class Kvadrat extends Oblik implements Pomerljiv{
+public class Kvadrat extends PovrsinskiOblik implements Pomerljiv{
 	protected Tacka goreLevo;
 	protected int duzinaStranice;
 	
@@ -63,6 +63,18 @@ public class Kvadrat extends Oblik implements Pomerljiv{
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawRect(goreLevo.getX(), goreLevo.getY(), duzinaStranice, duzinaStranice);
 	}
+	public void popuni(Graphics g){
+		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.fillRect(goreLevo.getX()+1, goreLevo.getY()+1, duzinaStranice-1, duzinaStranice-1);
+	}
+	public int compareTo(Object o) {
+		if(o instanceof Kvadrat){
+			Kvadrat pomocni  = (Kvadrat) o;
+			return this.povrsina() - pomocni.povrsina();
+		}
+		else 
+			return 0;
+	}
 	public Tacka getGoreLevo() {
 		return goreLevo;
 	}
@@ -79,11 +91,4 @@ public class Kvadrat extends Oblik implements Pomerljiv{
 		this.duzinaStranice = duzinaStranica;
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
 }

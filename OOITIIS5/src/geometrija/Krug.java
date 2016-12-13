@@ -2,7 +2,7 @@ package geometrija;
 
 import java.awt.Graphics;
 
-public class Krug extends Oblik implements Pomerljiv{
+public class Krug extends PovrsinskiOblik implements Pomerljiv{
 	private Tacka centar;
 	private int r;
 	
@@ -24,6 +24,10 @@ public class Krug extends Oblik implements Pomerljiv{
 	public void crtajSe(Graphics g){
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawOval(centar.getX()-r, centar.getY()-r, 2*r, r*2);
+	}
+	public void popuni(Graphics g){
+		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.fillOval(centar.getX()-r+1, centar.getY()-r+1, 2*r-2, r*2-2);
 	}
 	
 	public boolean equals(Object obj){
@@ -54,6 +58,14 @@ public class Krug extends Oblik implements Pomerljiv{
 	public double obim(){
 		return 2 * r * Math.PI;
 	}
+	public int compareTo(Object o) {
+		if(o instanceof Krug){
+			Krug pomocni  = (Krug) o;
+			return this.r - pomocni.r;
+		}
+		else
+			return 0;
+	}
 	public Tacka getCentar() {
 		return centar;
 	}
@@ -65,11 +77,6 @@ public class Krug extends Oblik implements Pomerljiv{
 	}
 	public void setR(int r) {
 		this.r = r;
-	}
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 

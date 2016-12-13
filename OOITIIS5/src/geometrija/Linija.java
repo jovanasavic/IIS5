@@ -5,10 +5,10 @@ import java.awt.Graphics;
 public class Linija extends Oblik{
 	private Tacka tPocetna;
 	private Tacka tKrajnja;
-	
-	
+
+
 	public Linija(){
-		
+
 	}
 	public Linija(Tacka tPocetna, Tacka tKrajnja){
 		this.tPocetna = tPocetna;
@@ -18,7 +18,7 @@ public class Linija extends Oblik{
 		super(boja);
 		this.tPocetna = tPocetna;
 		this.tKrajnja = tKrajnja;
-		
+
 	}
 	public Tacka sredinaLinije(){
 		int sredinaX = (tPocetna.getX() + tKrajnja.getX()) / 2;
@@ -28,7 +28,7 @@ public class Linija extends Oblik{
 	public String toString(){
 		return "("+tPocetna.getX()+"," +tPocetna.getY()+") --> (" + tKrajnja.getX()+","+ tKrajnja.getY() + ")";
 	}
-	
+
 	public boolean equals(Object obj){
 		if(obj instanceof Linija){
 			Linija pomocna=(Linija)obj;
@@ -40,12 +40,12 @@ public class Linija extends Oblik{
 		else
 			return false;
 	}
-	
-	
+
+
 	public double duzina(){
 		return tPocetna.udaljenost(tKrajnja);
 	}
-	
+
 	public void pomeriZa(int x, int y){
 		tPocetna.setX(tPocetna.getX()+x);
 		tPocetna.setY(tPocetna.getY()+y);
@@ -55,6 +55,15 @@ public class Linija extends Oblik{
 	public void crtajSe(Graphics g){
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawLine(tPocetna.getX(), tPocetna.getY(), tKrajnja.getX(), tKrajnja.getY());
+	}
+
+	public int compareTo(Object o) {
+		if(o instanceof Linija){
+			Linija pomocna = (Linija) o;
+			return (int)this.duzina() - (int)pomocna.duzina();
+		}
+		else
+			return 0;
 	}
 	public Tacka gettPocetna(){
 		return tPocetna;
@@ -68,10 +77,6 @@ public class Linija extends Oblik{
 	public void settKrajnja(Tacka tKrajnja){
 		this.tKrajnja = tKrajnja;
 	}
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
+
+
 }

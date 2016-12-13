@@ -1,6 +1,9 @@
 package geometrija;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Test {
 
@@ -119,6 +122,95 @@ public class Test {
 		for(int i=0;i<nizTacaka.length;i++)
 			System.out.println(nizTacaka[i]);
 		
+		Linija l2 = new Linija(t1, new Tacka(20, 20));
+		Linija l3 = new Linija(t1, new Tacka(30, 30));
+		Linija l4 = new Linija(t1, new Tacka(40, 40));
+		Linija l5 = new Linija(t1, new Tacka(50, 50));
+
+		Linija[] nizLinija = {l4,l2,l3,l5};
+
+		for(int i=0;i<nizLinija.length;i++)
+			System.out.println(nizLinija[i]);
+
+		Arrays.sort(nizLinija);
+
+		System.out.println("Sortiran niz linija: ");
+		for(int i=0;i<nizLinija.length;i++)
+			System.out.println(nizLinija[i]);
+		
+		Krug k1 = new Krug(t1, 10);
+		Krug k2 = new Krug(t1, 20);
+		Krug k3 = new Krug(t1, 30);
+		Krug k4 = new Krug(t1, 40);
+
+		Krug[] nizKrugova = {k4,k2,k3,k1};
+
+		for(int i=0;i<nizKrugova.length;i++)
+			System.out.println(nizKrugova[i]);
+
+		Arrays.sort(nizKrugova);
+
+		System.out.println("Sortiran niz krugova: ");
+		for(int i=0;i<nizKrugova.length;i++)
+			System.out.println(nizKrugova[i]);
+		
+		Kvadrat kv1 = new Kvadrat(t1, 10);
+		Kvadrat kv2 = new Kvadrat(t1, 20);
+		Kvadrat kv3 = new Kvadrat(t1, 30);
+		Kvadrat kv4 = new Kvadrat(t1, 40);
+		
+		Kvadrat[] nizKvadrata = {kv4,kv2,kv3,kv1};
+
+		for(int i=0;i<nizKvadrata.length;i++)
+			System.out.println(nizKvadrata[i]);
+
+		Arrays.sort(nizKvadrata);
+
+		System.out.println("Sortiran niz kvadrata: ");
+		for(int i=0;i<nizKvadrata.length;i++)
+			System.out.println(nizKvadrata[i]);
+
+		Pravougaonik p1 = new Pravougaonik(t1, 10, 100);
+		Pravougaonik p2 = new Pravougaonik(t1, 20, 100);
+		Pravougaonik p3 = new Pravougaonik(t1, 30, 100);
+		Pravougaonik p4 = new Pravougaonik(t1, 40, 100);
+		
+		Pravougaonik[] nizPravougaonika = {p4,p2,p3,p1};
+
+		for(int i=0;i<nizPravougaonika.length;i++)
+			System.out.println(nizPravougaonika[i]);
+
+		Arrays.sort(nizPravougaonika);
+
+		System.out.println("Sortiran niz kvadrata: ");
+		for(int i=0;i<nizPravougaonika.length;i++)
+			System.out.println(nizPravougaonika[i]);
+		
+		ArrayList<Tacka> lista = new ArrayList<Tacka>();
+		lista.add(t1);
+		lista.add(t2);
+		lista.add(t3);
+		lista.add(t4);
+		
+		lista.remove(1);
+		lista.add(1, t2);
+		
+		Iterator it = lista.iterator();
+		while(it.hasNext())
+			System.out.println(it.next());
+		
+		System.out.println(lista.size());
+		
+		HashMap<String, Oblik> hm = new HashMap();
+		hm.put("tacka", t1);
+		hm.put("linija", l2);
+		hm.put("krug", k1);
+		hm.put("linija", kv1);
+		
+		hm.remove("linija");
+				
+		System.out.println(hm.get("linija"));
+		System.out.println(hm.values());
 		
 	}
 
