@@ -1,5 +1,6 @@
 package geometrija;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Linija extends Oblik{
@@ -52,9 +53,17 @@ public class Linija extends Oblik{
 		tKrajnja.setX(tKrajnja.getX()+x);
 		tKrajnja.setY(tKrajnja.getY()+y);
 	}
+	public void selektovan(Graphics g){
+		g.setColor(Color.BLUE);
+		tPocetna.selektovan(g);
+		tKrajnja.selektovan(g);
+		sredinaLinije().selektovan(g);
+	}
 	public void crtajSe(Graphics g){
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawLine(tPocetna.getX(), tPocetna.getY(), tKrajnja.getX(), tKrajnja.getY());
+		if(isSelektovan())
+			selektovan(g);
 	}
 
 	public int compareTo(Object o) {

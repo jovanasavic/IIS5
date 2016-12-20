@@ -5,6 +5,7 @@ import java.awt.Graphics;
 
 public abstract class Oblik implements Comparable{
 	private String boja = "crna";
+	private boolean selektovan;
 	
 	public Oblik() {
 		
@@ -13,6 +14,7 @@ public abstract class Oblik implements Comparable{
 		this.boja = boja;
 	}
 	public abstract void crtajSe(Graphics g);
+	public abstract void selektovan(Graphics g);
 	
 	public static Color pronadjiBoju(String boja){
 		if(boja.equalsIgnoreCase("crna"))
@@ -40,6 +42,12 @@ public abstract class Oblik implements Comparable{
 
 	public void setBoja(String boja) {
 		this.boja = boja;
+	}
+	public boolean isSelektovan() {
+		return selektovan;
+	}
+	public void setSelektovan(boolean selektovan) {
+		this.selektovan = selektovan;
 	}
 	
 	

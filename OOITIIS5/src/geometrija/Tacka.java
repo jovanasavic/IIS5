@@ -49,11 +49,16 @@ public class Tacka extends Oblik implements Pomerljiv{
 		double rezultat = Math.sqrt(dx*dx + dy*dy);
 		return rezultat;
 	}
-
+	public void selektovan(Graphics g){
+		g.setColor(pronadjiBoju("plava"));
+		g.drawRect(x-3, y-3, 6, 6);
+	}
 	public void crtajSe(Graphics g) {
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawLine(x-2, y, x+2, y);
 		g.drawLine(x, y-2, x, y+2);
+		if(isSelektovan())
+			selektovan(g);
 	}
 	
 	public int compareTo(Object o) {

@@ -1,5 +1,6 @@
 package geometrija;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Kvadrat extends PovrsinskiOblik implements Pomerljiv{
@@ -59,9 +60,20 @@ public class Kvadrat extends PovrsinskiOblik implements Pomerljiv{
 	public int povrsina() {
 		return duzinaStranice * duzinaStranice;
 	}
+	public void selektovan(Graphics g) {
+		// TODO Auto-generated method stub
+		g.setColor(Color.BLUE);
+		new Linija(getGoreLevo(), new Tacka(getGoreLevo().getX()+duzinaStranice, getGoreLevo().getY())).selektovan(g);
+		new Linija(getGoreLevo(), new Tacka(getGoreLevo().getX(), getGoreLevo().getY()+duzinaStranice)).selektovan(g);
+		new Linija(new Tacka(getGoreLevo().getX()+duzinaStranice, getGoreLevo().getY()), dijagonala().gettKrajnja()).selektovan(g);
+		new Linija(new Tacka(getGoreLevo().getX(), getGoreLevo().getY()+duzinaStranice), dijagonala().gettKrajnja()).selektovan(g);
+
+	}
 	public void crtajSe(Graphics g){
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawRect(goreLevo.getX(), goreLevo.getY(), duzinaStranice, duzinaStranice);
+		if(isSelektovan())
+			selektovan(g);
 	}
 	public void popuni(Graphics g){
 		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));

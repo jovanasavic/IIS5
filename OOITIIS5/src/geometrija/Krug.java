@@ -24,10 +24,19 @@ public class Krug extends PovrsinskiOblik implements Pomerljiv{
 	public void crtajSe(Graphics g){
 		g.setColor(pronadjiBoju(getBoja()));
 		g.drawOval(centar.getX()-r, centar.getY()-r, 2*r, r*2);
+		if(isSelektovan())
+			selektovan(g);
+	}
+	public void selektovan(Graphics g) {
+		// TODO Auto-generated method stub
+		new Linija(new Tacka(centar.getX(), centar.getY()-r), new Tacka(centar.getX(), centar.getY() + r)).selektovan(g);
+		new Linija(new Tacka(centar.getX()-r, centar.getY()), new Tacka(centar.getX()+r, centar.getY())).selektovan(g);
+	
 	}
 	public void popuni(Graphics g){
 		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
 		g.fillOval(centar.getX()-r+1, centar.getY()-r+1, 2*r-2, r*2-2);
+		
 	}
 	
 	public boolean equals(Object obj){

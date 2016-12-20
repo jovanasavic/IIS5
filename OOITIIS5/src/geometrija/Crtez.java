@@ -21,26 +21,31 @@ public class Crtez extends JPanel{
 	public void paint(Graphics g){
 		Tacka t1 = new Tacka(400, 300);
 		t1.crtajSe(g);
-		t1.setBoja("plava");
+		t1.setBoja("crvena");
+		t1.setSelektovan(true);
 		t1.crtajSe(g);
 		Linija l1 = new Linija(new Tacka(20, 20), new Tacka(120, 30));
 		l1.crtajSe(g);
-		l1.gettPocetna().setBoja("plava");
-		l1.gettKrajnja().setBoja("zelena");
+		//l1.gettPocetna().setBoja("plava");
+		//l1.gettKrajnja().setBoja("zelena");
 		l1.setBoja("crvena");
-		l1.gettPocetna().crtajSe(g);
-		l1.gettKrajnja().crtajSe(g);
+		//l1.gettPocetna().crtajSe(g);
+		//l1.gettKrajnja().crtajSe(g);
+		l1.setSelektovan(true);
 		l1.crtajSe(g);
 		
-		Kvadrat kv1 = new Kvadrat(new Tacka(150, 30), 100,"plava");
+		Kvadrat kv1 = new Kvadrat(new Tacka(150, 30), 100,"zuta");
 		Pravougaonik p1 = new Pravougaonik(new Tacka(300,30),100, 50,"crvena");
 		Krug k1 = new Krug(new Tacka(550, 150), 100, "pink");
+		k1.setSelektovan(true);
 		k1.crtajSe(g);
+		kv1.setSelektovan(true);
 		kv1.crtajSe(g);
+		p1.setSelektovan(true);
 		p1.crtajSe(g);
-		k1.popuni(g);
-		kv1.popuni(g);
-		p1.popuni(g);
+		//k1.popuni(g);
+		//kv1.popuni(g);
+		//p1.popuni(g);
 		
 	}
 
