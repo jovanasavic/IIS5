@@ -60,6 +60,15 @@ public class Kvadrat extends PovrsinskiOblik implements Pomerljiv{
 	public int povrsina() {
 		return duzinaStranice * duzinaStranice;
 	}
+	public boolean sadrzi(int x, int y) {
+		if(this.getGoreLevo().getX()<=x 
+				&& x<=(this.getGoreLevo().getX() + duzinaStranice)
+				&& this.getGoreLevo().getY()<=y 
+				&& y<=(this.getGoreLevo().getY() + duzinaStranice))
+			return true;
+		else 
+			return false;
+	}
 	public void selektovan(Graphics g) {
 		// TODO Auto-generated method stub
 		g.setColor(Color.BLUE);

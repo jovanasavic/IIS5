@@ -15,6 +15,7 @@ public abstract class Oblik implements Comparable{
 	}
 	public abstract void crtajSe(Graphics g);
 	public abstract void selektovan(Graphics g);
+	public abstract boolean sadrzi(int x, int y);
 	
 	public static Color pronadjiBoju(String boja){
 		if(boja.equalsIgnoreCase("crna"))

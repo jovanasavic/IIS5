@@ -53,6 +53,13 @@ public class Linija extends Oblik{
 		tKrajnja.setX(tKrajnja.getX()+x);
 		tKrajnja.setY(tKrajnja.getY()+y);
 	}
+	public boolean sadrzi(int x, int y){
+		Tacka mestoKlika = new Tacka(x, y);
+		if(mestoKlika.udaljenost(tPocetna)+mestoKlika.udaljenost(tKrajnja)-this.duzina()<=0.5)
+			return true;
+		 else 
+			return false;		
+	}
 	public void selektovan(Graphics g){
 		g.setColor(Color.BLUE);
 		tPocetna.selektovan(g);

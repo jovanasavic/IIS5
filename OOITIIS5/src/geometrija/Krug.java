@@ -27,6 +27,13 @@ public class Krug extends PovrsinskiOblik implements Pomerljiv{
 		if(isSelektovan())
 			selektovan(g);
 	}
+	public boolean sadrzi(int x, int y){
+		Tacka mestoKlika = new Tacka(x, y);
+		if(mestoKlika.udaljenost(centar)<=r)
+			return true;
+		else
+			return false;
+	}
 	public void selektovan(Graphics g) {
 		// TODO Auto-generated method stub
 		new Linija(new Tacka(centar.getX(), centar.getY()-r), new Tacka(centar.getX(), centar.getY() + r)).selektovan(g);

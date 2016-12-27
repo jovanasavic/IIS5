@@ -4,8 +4,21 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Crtez extends JPanel{
+	int x;
+	int y;
+	public Crtez() {
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				x = e.getX();
+				y = e.getY();
+			}
+		});
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -19,9 +32,10 @@ public class Crtez extends JPanel{
 	}
 	
 	public void paint(Graphics g){
-		Tacka t1 = new Tacka(400, 300);
+		Tacka t1 = new Tacka(x, y);
 		t1.crtajSe(g);
-		t1.setBoja("crvena");
+		repaint();
+		/*t1.setBoja("crvena");
 		t1.setSelektovan(true);
 		t1.crtajSe(g);
 		Linija l1 = new Linija(new Tacka(20, 20), new Tacka(120, 30));
@@ -46,7 +60,7 @@ public class Crtez extends JPanel{
 		//k1.popuni(g);
 		//kv1.popuni(g);
 		//p1.popuni(g);
-		
+*/		
 	}
 
 }

@@ -102,7 +102,7 @@ public class Test {
 		System.out.println("Centar p4: "+p4.centar());
 		System.out.println("Centar kv4: "+kv4.centar());
 		*/
-		Tacka t1 = new Tacka(10, 10);
+		/*Tacka t1 = new Tacka(10, 10);
 		Tacka t2 = new Tacka(20, 20);
 		Tacka t3 = new Tacka(30, 30);
 		Tacka t4 = new Tacka(40, 40);
@@ -210,7 +210,36 @@ public class Test {
 		hm.remove("linija");
 				
 		System.out.println(hm.get("linija"));
-		System.out.println(hm.values());
+		System.out.println(hm.values());*/
+		Tacka t1 = new Tacka(10, 10);
+		Tacka t2 = new Tacka(20, 20);
+		Tacka t3 = new Tacka(30, 30);
+		Tacka t4 = new Tacka(40, 40);
+		
+		Tacka[] nizTacaka = new Tacka[4];
+		nizTacaka[0] = t3;
+		nizTacaka[1] = t1;
+		nizTacaka[2] = t2;
+		nizTacaka[3] = t4;
+		
+		try {
+			Integer.parseInt("5");
+			for(int i=0;i<100;i++)
+				System.out.println(nizTacaka[i]);
+		}catch (ArrayIndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Niz nema toliko elemenata!");
+		}catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Ne mogu pretvoriti u int!");
+		}finally {
+			System.out.println("finally");
+		}
+		
+		System.out.println("Ja sam neka naredba!");
+		
 		
 	}
 
