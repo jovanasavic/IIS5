@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import geometrija.Kvadrat;
+import geometrija.Tacka;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -104,9 +108,9 @@ public class VezbaWB extends JFrame {
 		popupMenu.add(mntmSelektovaneStavke);
 		GridBagLayout gbl_pnlCentar = new GridBagLayout();
 		gbl_pnlCentar.columnWidths = new int[]{0, 0, 0, 0};
-		gbl_pnlCentar.rowHeights = new int[]{0, 0, 0, 0, 0};
+		gbl_pnlCentar.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 		gbl_pnlCentar.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_pnlCentar.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_pnlCentar.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlCentar.setLayout(gbl_pnlCentar);
 
 		JToggleButton tglbtnIvanovic = new JToggleButton("Ivanovi\u0107");
@@ -178,7 +182,7 @@ public class VezbaWB extends JFrame {
 		JCheckBox chckbxUnesiIgraca = new JCheckBox("Unesi igrača");
 		
 		GridBagConstraints gbc_chckbxUnesiIgraca = new GridBagConstraints();
-		gbc_chckbxUnesiIgraca.insets = new Insets(0, 0, 0, 5);
+		gbc_chckbxUnesiIgraca.insets = new Insets(0, 0, 5, 5);
 		gbc_chckbxUnesiIgraca.gridx = 0;
 		gbc_chckbxUnesiIgraca.gridy = 3;
 		pnlCentar.add(chckbxUnesiIgraca, gbc_chckbxUnesiIgraca);
@@ -187,7 +191,7 @@ public class VezbaWB extends JFrame {
 		
 		txtUnosIgraca.setEditable(false);
 		GridBagConstraints gbc_txtUnosIgraca = new GridBagConstraints();
-		gbc_txtUnosIgraca.insets = new Insets(0, 0, 0, 5);
+		gbc_txtUnosIgraca.insets = new Insets(0, 0, 5, 5);
 		gbc_txtUnosIgraca.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtUnosIgraca.gridx = 1;
 		gbc_txtUnosIgraca.gridy = 3;
@@ -198,10 +202,19 @@ public class VezbaWB extends JFrame {
 		cbxIgraci.setModel(new DefaultComboBoxModel(new String[] {"", "Tirke", "Moša", "Bek"}));
 		cbxIgraci.setSelectedIndex(2);
 		GridBagConstraints gbc_cbxIgraci = new GridBagConstraints();
+		gbc_cbxIgraci.insets = new Insets(0, 0, 5, 0);
 		gbc_cbxIgraci.fill = GridBagConstraints.HORIZONTAL;
 		gbc_cbxIgraci.gridx = 2;
 		gbc_cbxIgraci.gridy = 3;
 		pnlCentar.add(cbxIgraci, gbc_cbxIgraci);
+		
+		JButton btnDijalog = new JButton("Dijalog");
+		
+		GridBagConstraints gbc_btnDijalog = new GridBagConstraints();
+		gbc_btnDijalog.insets = new Insets(0, 0, 0, 5);
+		gbc_btnDijalog.gridx = 1;
+		gbc_btnDijalog.gridy = 4;
+		pnlCentar.add(btnDijalog, gbc_btnDijalog);
 
 		tglbtnIvanovic.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
@@ -258,6 +271,14 @@ public class VezbaWB extends JFrame {
 		mntmSelektovaneStavke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null,"Selektovane stavke su:\nPadajuća lista: "+cbxIgraci.getSelectedItem()+"\nLista: "+lstIgraci.getSelectedValue(), "Poruka", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnDijalog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgKvadrat dlgk = new DlgKvadrat();
+				dlgk.setVisible(true);
+				Kvadrat kv = new Kvadrat(new Tacka(dlgk.x, 10), dlgk.duzinaStranice, dlgk.bojaIvice);
+				JOptionPane.showMessageDialog(null, kv,"Poruka", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 	}
